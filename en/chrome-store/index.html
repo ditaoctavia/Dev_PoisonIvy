@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CumulusPro - Free Scanning Software</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7, IE=9" />
+
+<!-- Le styles -->
+<link href="assets/css/cp.css" rel="stylesheet">
+<link href="assets/css/docs.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+<!-- Le fav and touch icons -->
+<link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Added at the head, before all tracking events scripts are called -->
+<script type="text/javascript" src="../assets/js/ga.js" async></script>
+</head>
+
+<body data-spy="scroll" data-target=".subnav" data-offset="50"class="skygrad-mid white">
+
+<div class="modal-video hide fade" id="scanVideo">
+  <a class="closeModalBox" data-dismiss="modal"></a>
+  <div class="modal-body-video">
+    <p>ScanApp Video</p>
+  </div>
+</div>
+
+    <div id="myModal" class="modal hide fade">
+	        <div class="modal-header quickleft">
+	            <button type="button" class="close" data-dismiss="modal">&times;</button>
+	            <h2>Get Scan+ now</h2>
+	        </div>
+	        <div class="modal-body quickleft">
+	            <h3>Start using your Scan+ app in just a few minutes!</h3>
+	            <label class="checkbox">
+	            <input type="checkbox" value="option1" id="optionsCheckboxList1" name="optionsCheckboxList1">
+	            I agree to the <a target="_blank" href="http://cumuluspro.com/en/terms/">Terms of Use</a> and <a target="_blank" href="http://cumuluspro.com/en/privacy/">Privacy Policy</a>. </label>
+	        </div>
+	        <div class="modal-footer">
+	            <a href="javascript:;" onClick="Accept_Policy(); _gaq.push(['_trackEvent', 'CTAS', 'Agree', 'SS2-Chrome']);" id="AcceptPolicy" class="btn btn-primary yellow large">Accept & Proceed</a>
+	        </div>
+    </div>
+
+    <div id="myModalSS1" class="modal hide fade">
+	        <div class="modal-header quickleft">
+	            <button type="button" class="close" data-dismiss="modal">&times;</button>
+	            <h2>Get Scan+ now</h2>
+	        </div>
+	        <div class="modal-body quickleft">
+	            <h3>Start using your Scan+ app in just a few minutes!</h3>
+	            <label class="checkbox">
+	            <input type="checkbox" value="option1" id="optionsCheckboxListSS1" name="optionsCheckboxListSS1">
+	            I agree to the <a target="_blank" href="http://cumuluspro.com/en/terms/">Terms of Use</a> and <a target="_blank" href="http://cumuluspro.com/en/privacy/">Privacy Policy</a>. </label>
+	        </div>
+	        <div class="modal-footer">
+	            <a href="javascript:;" onClick="Accept_PolicySS1(); _gaq.push(['_trackEvent', 'CTAS', 'Agree', 'SS1-Chrome']);" id="AcceptPolicySS1" class="btn btn-primary yellow large">Accept & Proceed</a>
+	        </div>
+    </div>
+
+    <div id="UpgradeModel" class="modal hide fade">
+	        <div class="modal-header quickleft">
+	            <button type="button" class="close" onClick="RedirectToScanStore()" data-dismiss="modal">&times;</button>
+                <!--<button type="button" class="close" onclick="window.open('http://scan-store.cloudapp.net/cumuluspro/en/scanapp/default.htm');return false;" data-dismiss="modal">&times;</button>-->
+	            <h2>Upgrade to Scan+Share?</h2>
+	        </div>
+	        <div class="modal-body quickleft">
+	            <h3>Enjoy all the benefits of Scan+Store, plus share your documents on the cloud.</h3>
+	            <label class="checkbox">
+	            <input type="checkbox" value="optionsCheckboxUpgrade" id="optionsCheckboxUpgrade" name="optionsCheckboxListSS1">
+	            I agree to the <a target="_blank" href="http://cumuluspro.com/en/terms/">Terms of Use</a> and <a target="_blank" href="http://cumuluspro.com/en/privacy/">Privacy Policy</a>. </label>
+	        </div>
+	        <div class="modal-footer">
+	            <a href="javascript:;" onClick="Accept_PolicyUpgrade(); _gaq.push(['_trackEvent', 'CTAS', 'Agree', 'SS2-Upgrade-Chrome']);" id="Accept_PolicyUpgrade" class="btn btn-primary yellow large">Accept & Proceed</a>
+	        </div>
+    </div>
+
+    <div id="UpgradeInProgressModel" class="modal hide fade">
+	        <div class="modal-header quickleft">
+	            <!--button type="button" class="close" data-dismiss="modal">&times;</button-->
+	            <h2>Upgrading in progress</h2>
+	        </div>
+	        <div class="modal-body quickleft">
+	            <h3>Scan+Share is now being configured on your PC...</h3>
+	        </div>
+	        <div class="modal-footer">
+	        </div>
+    </div>
+
+	<div id="UpgradeCompleteNSuccess" class="modal hide fade">
+			<div class="modal-header quickleft">
+				<!--button type="button" class="close" data-dismiss="modal">&times;</button-->
+				<h2>Upgrading complete!</h2>
+			</div>
+			<div class="modal-body quickleft">
+				<h3>You can start using Scan+Share right away.</h3>
+			</div>
+			<div class="modal-footer">
+				<a href="javascript:;" class="btn btn-primary yellow large">Ok</a>
+			</div>
+	</div>
+
+    <div id="UpgradeTimeout" class="modal hide fade">
+          <div class="modal-header quickleft">
+              <!--button type="button" class="close" data-dismiss="modal">&times;</button-->
+              <h2>Upgrade timeout</h2>
+          </div>
+          <div class="modal-body quickleft">
+              <h3>Do you want to?</h3>
+          </div>
+          <div class="modal-footer">
+                <a href="javascript:;" class="btn yellow btn-primary large action-retry">Wait a little longer</a>
+                <a href="javascript:;" class="btn yellow btn-primary large action-try-later">Try again later</a>
+          </div>
+    </div>
+
+    <div id="UpgradeFailure" class="modal-invoke hide fade">
+          <div class="modal-invoke-header quickleft">
+              <button type="button" class="close-invoke" data-dismiss="modal">&times;</button>
+              <h2>Sorry, upgrading could not be completed</h2>
+          </div>
+          <div class="modal-invoke-body quickleft">
+              <h3>Please try again</h3>
+          </div>
+          <div class="modal-invoke-footer">
+                <a href="javascript:;" class="btn btn-primary yellow large" data-dismiss="modal">Ok</a>
+          </div>
+    </div>
+
+<!-- Navbar
+    ================================================== -->
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="brand">Cumulus Pro</a>
+      <div class="nav-collapse collapse">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Masthead
+================================================== -->
+
+<header class="container jumbotron center ">
+  <div class="inner mid">
+    <div class="why">
+      <h1>Get a Free Document Scanning App</h1>
+      <p>Scan your documents and share them on your cloud storage instantly</p>
+    </div>
+    <p class="download-info"> <a id="btn-ss2" onClick="_gaq.push(['_trackEvent', 'CTAS', 'Download', 'SS2-Chrome']);" target="_blank" class="btn btn-primary yellow btn-large push app-download-btn ">Download Scan+Share</a> <a data-toggle="modal" href="#scanVideo" onClick="_gaq.push(['_trackEvent', 'Videos', 'How it works', 'SS2 Video-Chrome']);" class="btn btn-primary grey btn-large push">See how it works</a> </p>
+  </div>
+  <div class="clearfix"></div>
+</header>
+<section class="push">
+  <div class="container">
+    <div class="marketing">
+      <div>
+        <div class="center"><img src="assets/img/scan-share-browser-app.png"> </div>
+        <div class="homevideo"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="clearfix"></div>
+<div class="wrap white-wrap push">
+  <div class="container">
+    <div class="center pitch">
+      <h2 class="customh2">Do more with Scan+Share</h2>
+    </div>
+    <div class="row">
+      <div class="span3 features share">
+        <div class="image"></div>
+        <div class="copy">
+          <h2 class="smallerh2">Share</h2>
+          <p>Share your scanned documents instantly on Google Drive and Evernote. And soon, on OneDrive, LinkedIn, Dropbox and more!</p>
+        </div>
+      </div>
+      <div class="span3 features email">
+        <div class="image"></div>
+        <div class="copy">
+          <h2 class="smallerh2">Email</h2>
+          <p>Email directly from the app with a quick click. Your document(s) are automatically attached to your default email client.</p>
+        </div>
+      </div>
+      <div class="span3 features print">
+        <div class="image"></div>
+        <div class="copy">
+          <h2 class="smallerh2">Print</h2>
+          <p>Print your scanned documents quickly and conveniently. It's so easy, and only takes
+            a<br>few seconds!</p>
+        </div>
+      </div>
+      <div class="span3 features save">
+        <div class="image"></div>
+        <div class="copy">
+          <h2 class="smallerh2">Save</h2>
+          <p>Save your documents in PDF, TIFF, JPG, or ZIP format on your PC or an external drive,
+            or store them on the cloud.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrap light-wrap push shade">
+  <div class="container">
+    <div class="center">
+      <h2>Here's what our customers are saying</h2>
+    </div>
+    <div class="row">
+      <div class=" customer center">
+        <div id="myCarousel" class="carousel slide" data-interval="10000"> 
+          <!-- Carousel items -->
+          <ol class="carousel-indicators middle">
+            <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+            <li class="" data-slide-to="1" data-target="#myCarousel"></li>
+            <li class="" data-slide-to="2" data-target="#myCarousel"></li>
+            <li class="" data-slide-to="3" data-target="#myCarousel"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="active item">
+              <div class="center">
+                <div class="profile testimonial center"><div id="cb"></div></div>
+                <blockquote>
+                  <p>"Very slick!!<br>
+                    It looks very promising and I was able to scan some<br>
+                    documents in no time with my
+                    Fujitsu."</p>
+                  <small>JD Moons <cite title="Source Title">Capturebites</cite></small> </blockquote>
+              </div>
+            </div>
+            <div class="item">
+              <div class="center">
+                <div class="profile testimonial center"><div id="ea"></div></div>
+                <blockquote>
+                  <p>"By far the best scan and share tool I've used. Nice easy to use interface. I can quickly scan and organize my receipts all in my web browser.  If you use Google Drive or Evernote then this is the right scan app."</p>
+                  <small>Jesse Parenteau <cite title="Source Title">EngineApp</cite></small> </blockquote>
+              </div>
+            </div>
+            <div class="item">
+              <div class="center">
+                <div class="profile testimonial center"><div id="ba"></div></div>
+                <blockquote>
+                  <p>"Wow !!! I was ready to scan within minutes.  Its already a great experience. Moreover, without any further installation and connection, Scan+Share automatically found my wireless MFP."</p>
+                  <small>Urs Niederberger <cite title="Source Title">Board Advisors</cite></small> </blockquote>
+              </div>
+            </div>
+            <div class="item">
+              <div class="center">
+                <div class="profile testimonial center"><div id="dicom"></div></div>
+                <blockquote>
+                  <p>"The installation was such a breeze. Once I started scanning, CumulusPro's Scan+ was quick, easy
+                    to navigate, and I even had fun figuring out how to email my documents and save them in different
+                    formats."</p>
+                  <small>Mike Weidner <cite title="Source Title">DICOM</cite></small> </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div class="wrap white-wrap push shade">
+  <div class="container">
+    <div class="row center">
+      <div class="span6">
+      <div class="profile right"><a id="facebook" href="https://www.facebook.com/cumuluspro.community" target="blank" onClick="_gaq.push(['_trackSocial', 'facebook', 'profile', 'http://www.facebook.com/cumuluspro.community']);"></a></div>
+    </div>
+    <div class="span6">
+      <div class="profile left"><a id="linkedin" href="http://www.linkedin.com/company/2747031?trk=tyah" target="blank" onClick="_gaq.push(['_trackSocial', 'linkedin', 'profile', 'http://www.linkedin.com/company/2747031?trk=tyah']);"></a></div>
+    </div>
+    </div>
+  </div>
+</div>
+<header class="jumbotron">
+  <div class="container">
+    <div class=" customer center">
+      <h4>Scan+ apps provide you with a workspace to scan as many documents and pages as<br>you wish. You can also email and print your documents, save them to your PC or an<br>external drive, share them on the cloud, or post them on social media. Get started on your<br>Internet Explorer 9, Internet Explorer 10, Google Chrome or Firefox browser now!</h4>
+      <p class="download-info"> <a id="btn-ss2" target="_blank" onClick="_gaq.push(['_trackEvent', 'CTAS', 'Download', 'SS2-Chrome']);" class="btn btn-primary yellow btn-large app-download-btn">Download Scan+Share</a> </p>
+    </div>
+  </div>
+  </div>
+</header>
+
+<div class="container"> 
+  <!-- Footer
+        ================================================== -->
+  <footer class="footer">
+    <ul class="nav">
+      <li class=""> <a href="../about-us/">About Us</a></li>
+      <li class=""> <a target="_blank" href="../faq/">FAQs</a></li>
+      <li class=""> <a href="../terms/">Terms of Use</a> </li>
+      <li class=""> <a href="../privacy/">Privacy Policy</a> </li>
+      <li class=""> <a target="_blank" href="../feedback/">Feedback</a> </li>
+    </ul>
+  </footer>
+</div>
+<!--</div>--> 
+<!-- /container -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+var CONFIG = {
+  partnerId: 'cumuluspro'
+};
+</script>
+
+<script type="text/javascript" src="assets/js/invoke-app.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/application.js"></script>
+
+<script>
+
+$('#scanVideo').on('show', function () {
+  $('#scanVideo div.modal-body-video').html('<iframe id="ytplayer" width="830" height="490" src="http://www.youtube.com/embed/SmAWn0vN1kY?rel=0&vq=hd720" frameborder="0" allowfullscreen></iframe>'); 
+});
+
+$('#scanVideo').on('hide', function () {
+	$('#scanVideo iframe').removeAttr('src');
+});
+
+</script>
+
+<script type="text/javascript">
+$('.carousel').carousel({
+interval: 10000
+});
+</script>
+
+</body>
+</html>
